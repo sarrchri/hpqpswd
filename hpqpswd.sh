@@ -201,8 +201,8 @@ else
 
 	## Read password from terminal.
 	## 
-	## 65535: The length field in the password file is 16 bit.
-	IFS=$'\n' read -n 65535 -r -s -p "Input password: " PASSWORD
+	## The length field in the password file is 16 bit, but HP devices accept a maximum password length of 32 characters.
+	IFS=$'\n' read -n 32 -r -s -p "Input password: " PASSWORD
 	if tty --silent
 	then
 		## We are connected to a terminal, so add a newline for 
